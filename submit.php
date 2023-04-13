@@ -13,23 +13,26 @@ if(isset($_GET['submit'])) {
     echo "<p>Category: " . $category . "</p>";
     echo "<p>Difficulty: " . $difficulty . "</p>";
     
-    echo "</ol><p>Ingredients:</p><ul>";
+    echo "<p>Ingredients:</p><ul>";
     
     foreach ($ingredients as $ingredient){
         echo "<li>" . $ingredient . "</li>";
     }
+    echo "</ul>";
     echo "<p>Instructions:</p><ol type ='1'>";
     foreach ($instructions as $instruction) {
         echo "<li>" . $instruction . "</li>";
     }
     }
     
-    echo "</ul>";
+    echo "</ol>";
     
-    echo "<form method='post' action='insert.php'>";
+    echo "<form method='get' action='insert.php'>";
     echo "<input type='hidden' name='recipeName' value='" . $recipeName . "'>";
     echo "<input type='hidden' name='category' value='" . $category . "'>";
     echo "<input type='hidden' name='difficulty' value='" . $difficulty . "'>";
+
+    
 
     foreach ($instructions as $key => $value) {
         echo "<input type='hidden' name='instructions[]' value='" . $value . "'>";
