@@ -7,18 +7,20 @@ if(isset($_GET['submit'])) {
     $difficulty = $_GET['difficulty'];
 
 
+
     // Echo out the values
     echo "<p>Recipe Name: " . $recipeName . "</p>";
     echo "<p>Category: " . $category . "</p>";
     echo "<p>Difficulty: " . $difficulty . "</p>";
-    echo "<p>Instructions:</p><ul>";
-    foreach ($instructions as $instruction) {
-        echo "<li>" . $instruction . "</li>";
-    }
-    echo "</ul><p>Ingredients:</p><ul>";
+    
+    echo "</ol><p>Ingredients:</p><ul>";
     
     foreach ($ingredients as $ingredient){
         echo "<li>" . $ingredient . "</li>";
+    }
+    echo "<p>Instructions:</p><ol type ='1'>";
+    foreach ($instructions as $instruction) {
+        echo "<li>" . $instruction . "</li>";
     }
     }
     
@@ -27,6 +29,7 @@ if(isset($_GET['submit'])) {
     echo "<form method='post' action='insert.php'>";
     echo "<input type='hidden' name='recipeName' value='" . $recipeName . "'>";
     echo "<input type='hidden' name='category' value='" . $category . "'>";
+    echo "<input type='hidden' name='difficulty' value='" . $difficulty . "'>";
 
     foreach ($instructions as $key => $value) {
         echo "<input type='hidden' name='instructions[]' value='" . $value . "'>";
