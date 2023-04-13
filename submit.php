@@ -4,10 +4,13 @@ if(isset($_GET['submit'])) {
     $category = $_GET['category'];
     $instructions = $_GET['instruction'];
     $ingredients = $_GET['ingid'];
+    $difficulty = $_GET['difficulty'];
+
 
     // Echo out the values
     echo "<p>Recipe Name: " . $recipeName . "</p>";
     echo "<p>Category: " . $category . "</p>";
+    echo "<p>Difficulty: " . $difficulty . "</p>";
     echo "<p>Instructions:</p><ul>";
     foreach ($instructions as $instruction) {
         echo "<li>" . $instruction . "</li>";
