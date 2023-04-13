@@ -1,0 +1,10 @@
+div {
+    width: 100px;
+    border: 2px solid red;
+}
+div.a {
+    word-wrap: normal;
+}
+div.b {
+    word-wrap: break-word;
+}

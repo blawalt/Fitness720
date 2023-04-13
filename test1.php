@@ -79,14 +79,14 @@ function deleteItem(button) {
 
 function addItem() {
   var ingredient = document.getElementById("ingredient");
-  var ingid = ingredient.value;
-  var ingName = ingredient.options[ingredient.selectedIndex].text;
+  var ingName = ingredient.value;
+  var ingid = ingredient.options[ingredient.selectedIndex].text;
   var table = document.getElementById("item-table-body");
   var row = table.insertRow();
-  //var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(0);
-  var cell3 = row.insertCell(1);
-  //cell1.innerHTML = "<input type='hidden' name='ingid[]' value='" + ingid + "'>";
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = "<input type='hidden' name='ingid[]' value='" + ingid + "'>" + ingid;
   cell2.innerHTML = ingName;
   cell3.innerHTML = "<button onclick='deleteItem(this)'>Delete Item</button>";
   
