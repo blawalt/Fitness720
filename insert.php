@@ -3,7 +3,7 @@ $recipeName = $_GET['recipeName'];
 $category = $_GET['category'];
 $difficulty = $_GET['difficulty'];
 $instructions = $_GET['instructions'];
-//$ingredients = $_GET['ingid'];
+$ingredients = $_GET['ingredients'];
 
 
 include_once 'connect.php';
@@ -19,18 +19,22 @@ else {
     "Error: " . $sql . "<br>" . $conn->error;
 }
 
-echo "<p>Ingredients:</p><ul>";
-    
-    foreach ($ingredients as $ingredient){
-        echo $ingredient . "<br>";
-    }
-    echo "</ul>";
 
-echo "<p>Instructions:</p><ol type ='1'>";
+//insert statement for ingredients and instructions
+
 foreach ($instructions as $instruction) {
-   echo $instruction . "<br>";
+
+    $sql1 = "SET @max_insid = (SELECT MAX(insid) + 1 FROM instructions);
+            INSERT INTO instructions (insid, instruction, recipeid) VALUES (@max_insid, $instruction, @max_recipeid)";
+
+    if ($conn->multi_query($sql) === TRUE){
+        echo "New record created successfully!";
+    }
+    else {
+        "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
-echo "</ol>";
+
 
 
 
