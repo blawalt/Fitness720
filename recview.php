@@ -43,10 +43,6 @@ if ($result->num_rows > 0) {
                 echo "<li>" . $row['ingName'] . "</li>";
                 
             }
-            echo $total_cal . "<br>";
-            echo $total_pro . "<br>";
-            echo $total_car . "<br>";
-            echo $total_fat . "<br>";
         }
         echo "</ul>";
         echo "<p>Instructions:</p><ul>";
@@ -61,14 +57,16 @@ if ($result->num_rows > 0) {
             }
         }
         echo "</ol></ul>";
-        echo "Macros:";
-        foreach ($ingredients as $ingredient){
-            echo $ingredient;
-            //$sql3 = "SELECT * FROM ingredients WHERE ingName = $ingredient";
-
+        
+        echo "Calories: $total_cal &nbsp";
+        echo "Protein: $total_pro &nbsp";
+        echo "Carbs: $total_car &nbsp";
+        echo "Fat: $total_fat &nbsp";
+        
+        
         }
     }
-}
+
 $conn->close();
 ?>
 
