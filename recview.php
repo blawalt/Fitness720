@@ -25,18 +25,28 @@ if ($result->num_rows > 0) {
         $result1 = $conn->query($sql1);
 
         if ($result1->num_rows > 0){
+            $total_cal = 0;
+            $total_pro = 0;
+            $total_car = 0;
+            $total_fat = 0;
             while ($row = $result1->fetch_assoc()){
-                $total_cal = 0;
-                $total_pro = 0;
-                $total_car = 0;
-                $total_fat = 0;
                 $calorie = $row['calorie'];
                 $protein = $row['protein'];
                 $carb = $row['carb'];
                 $fat = $row['fat'];
+
+                $total_cal += $calorie;
+                $total_pro += $protein;
+                $total_car += $carb;
+                $total_fat += $fat;
+
                 echo "<li>" . $row['ingName'] . "</li>";
                 
             }
+            echo $total_cal . "<br>";
+            echo $total_pro . "<br>";
+            echo $total_car . "<br>";
+            echo $total_fat . "<br>";
         }
         echo "</ul>";
         echo "<p>Instructions:</p><ul>";
