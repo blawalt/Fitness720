@@ -16,18 +16,25 @@ if ($result->num_rows > 0) {
         echo "<p>Recipe Name: " . $row['recipeName'] . "</p>";
         echo "<p>Category: " . $row['recipeCategory'] . "</p>";
         echo "<p>Difficulty: " . $row['difficulty'] . "</p>";
-        echo "</ul><p>Ingredients:</p><ul>";
+        echo "</ul><p>Ingredients:</p>";
 
         //Display Ingredients
+
+        
         $sql1 = "SELECT * FROM ingredients, ingredients_has_recipes WHERE ingredients_has_recipes.recipeid = '$recipeid' AND ingredients_has_recipes.ingid = ingredients.ingid ";
         $result1 = $conn->query($sql1);
 
         if ($result1->num_rows > 0){
             while ($row = $result1->fetch_assoc()){
+                $calorie = $row['calorie'];
+                $protein = $row['protein'];
+                $carb = $row['carb'];
+                $fat = $row['fat'];
                 echo "<li>" . $row['ingName'] . "</li>";
+                
             }
         }
-        
+        echo "</ul>";
         echo "<p>Instructions:</p><ul>";
 
         //Display Instructions
@@ -39,7 +46,13 @@ if ($result->num_rows > 0) {
                 echo "<li>" . $row['instruction'] . "</li>";
             }
         }
-        echo "</ol>";
+        echo "</ol></ul>";
+        echo "Macros:";
+        foreach ($ingredients as $ingredient){
+            echo $ingredient;
+            //$sql3 = "SELECT * FROM ingredients WHERE ingName = $ingredient";
+
+        }
     }
 }
 $conn->close();
