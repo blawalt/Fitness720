@@ -30,18 +30,47 @@ include_once 'index.html'
         }
         ?>
     </select>
-    <input type="submit" value="Add">
+    <br><br>
+    <input type="submit" value="Add" name="add">
+    <input type="submit" value="View Journal" name="journal">
 </form>
 
 
 </html>
 
+<!--php for when add is pressed. adding recipe to journal table-->
+
 <?php
 
-if (isset($_GET['date']))
+include 'connect.php';
 
-    
+if (isset($_GET['add'])){
+        $sql = "SELECT * FROM recipes";
+        $result=$conn->query($sql);
+        if ($result->num_rows > 0){
+            while($row=$result->fetch_assoc()){
+                echo $row['recipeid'];
+            }
+        
+        }
+        else{
+            echo "no work";
+        }
+    }
 
 
+
+
+
+//php for when view journal is pressed. repeats recview.php
+
+elseif (isset($_GET['journal'])){
+
+    echo "bye";
+}
+
+else {
+    echo "whats going on";
+}
 
 ?>
