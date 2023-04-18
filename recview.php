@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
         echo "<p>Recipe Name: " . $row['recipeName'] . "</p>";
         echo "<p>Category: " . $row['recipeCategory'] . "</p>";
         echo "<p>Difficulty: " . $row['difficulty'] . "</p>";
-        echo "</ul><p>Ingredients:</p>";
+        echo "<p>Ingredients:</p><ul>";
 
         //Display Ingredients
 
@@ -41,15 +41,14 @@ if ($result->num_rows > 0) {
                 $total_fat += $fat;
 
                 echo "<li>" . $row['ingName'] . "</li>";
-                $sql3 = "INSERT INTO ingredients_has_recipes (insid, recipeid) VALUES ('$ingid','$recipeid');";
-                $conn->query($sql3);
+                
                 
             }
         }
         echo "</ul>";
 
         
-        echo "<p>Instructions:</p><ul>";
+        echo "<p>Instructions:</p>";
 
         //Display Instructions
         $sql2 = "SELECT * FROM instructions WHERE recipeid=$recipeid";
@@ -60,7 +59,7 @@ if ($result->num_rows > 0) {
                 echo "<li>" . $row['instruction'] . "</li>";
             }
         }
-        echo "</ol></ul>";
+        echo "</ol>";
         
         echo "Calories: $total_cal &nbsp";
         echo "Protein: $total_pro &nbsp";

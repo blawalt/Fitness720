@@ -27,7 +27,8 @@ include_once 'index.html';
             if ($result1->num_rows > 0) {
                 // Loop through the results and create an option for each ingredient
                 while($row = $result1->fetch_assoc()) {
-                    echo '<option value='.$row["recipeCategory"].'>' . $row["recipeCategory"] .' </option>';
+                    echo '<option value="'.$row["recipeCategory"].'">' . $row["recipeCategory"] .' </option>';
+                
                 }
             } else {
                 echo "<option value=''>No categories found</option>";
@@ -52,7 +53,7 @@ include_once 'index.html';
             if ($result3->num_rows > 0) {
                 // Loop through the results and create an option for each ingredient
                 while($row = $result3->fetch_assoc()) {
-                    echo '<option value='.$row["difficulty"].'>' . $row["difficulty"] .' </option>';
+                    echo '<option value="'.$row["difficulty"].'">' . $row["difficulty"] .' </option>';
                 }
             } else {
                 echo "<option value=''>No difficulties found!</option>";
@@ -72,7 +73,7 @@ include_once 'index.html';
                     if ($result->num_rows > 0) {
                         // Loop through the results and create an option for each ingredient
                         while($row = $result->fetch_assoc()) {
-                            echo "<option value='" . $row["ingName"] . "'>" . $row["ingName"] . "</option>";
+                            echo "<option value="' . $row["ingName"] . '">" . $row["ingName"] . "</option>";
                         }
                     } else {
                         echo "<option value=''>No ingredients found</option>";
