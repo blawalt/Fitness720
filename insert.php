@@ -29,7 +29,16 @@ foreach ($ingredients as $ingredient){
     $result = $conn->query($sql4);
     if ($result){
         $row = $result->fetch_assoc();
-        echo $row[0];
+        foreach ($row as $ingid){
+            $sql5 = "";
+            $result1 = $conn->query($sql5);
+            if ($result1){
+                echo "New record created successfully!<br>";
+            }
+            else {
+                echo "Error: " . $sql5 . "<br>" . $conn->error;
+            }
+        }
     }
     else {
         echo "Error: " . $sql4 . "<br>" . $conn->error;
