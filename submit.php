@@ -1,4 +1,7 @@
 <?php
+
+include_once 'index.html';
+
 if(isset($_GET['submit'])) {
     $recipeName = $_GET['recipe-name'];
     $category = $_GET['category'];

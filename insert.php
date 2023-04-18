@@ -1,4 +1,7 @@
 <?php
+include_once 'index.html';
+
+
 $recipeName = $_GET['recipeName'];
 $category = $_GET['category'];
 $difficulty = $_GET['difficulty'];
