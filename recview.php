@@ -34,17 +34,21 @@ if ($result->num_rows > 0) {
                 $protein = $row['protein'];
                 $carb = $row['carb'];
                 $fat = $row['fat'];
-
+                $ingid = $row['ingid'];
                 $total_cal += $calorie;
                 $total_pro += $protein;
                 $total_car += $carb;
                 $total_fat += $fat;
 
                 echo "<li>" . $row['ingName'] . "</li>";
+                $sql3 = "INSERT INTO ingredients_has_recipes (insid, recipeid) VALUES ('$ingid','$recipeid');";
+                $conn->query($sql3);
                 
             }
         }
         echo "</ul>";
+
+        
         echo "<p>Instructions:</p><ul>";
 
         //Display Instructions

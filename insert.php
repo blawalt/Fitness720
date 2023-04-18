@@ -21,6 +21,54 @@ else {
 }
 
 
+//create link between ingredients and recipes
+foreach ($ingredients as $ingredient){
+    include 'connect.php';
+    $sql4 = "SELECT ingid FROM ingredients WHERE ingName = '$ingredient'";
+    
+    $result = $conn->query($sql4);
+    if ($result){
+        $row = $result->fetch_assoc();
+        echo $row[0];
+    }
+    else {
+        echo "Error: " . $sql4 . "<br>" . $conn->error;
+    }
+
+    // echo $sql4;
+    // $result = $conn->query($sql4);
+
+    // if ($result->num_rows > 0) {
+    //     while ($row = $result->fetch_row()){
+    //         echo $row[0];
+    //     }
+    // }
+    // else {
+    //     echo "no work bitch";
+    // }
+
+
+
+
+
+   
+    
+    // if ($result1 === TRUE){
+    //     $row = $result1->fetch_assoc();
+    //     echo $row['ingid'];
+    // }
+    // else {
+    //     echo "no work";
+    // }
+    
+
+
+    // $sql2 = "INSERT INTO ingredients_has_recipes (insid, recipeid) VALUES ('$ingid','$recipeid');";
+    // $conn->query($sql3);"
+
+
+
+}
 //insert statement for ingredients and instructions
 
 foreach ($instructions as $instruction) {
