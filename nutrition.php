@@ -1,10 +1,10 @@
 <?php
-include_once 'index.html'
+include_once 'index.html';
 ?>
 
 <html>
 
-<form method ="get" >
+<form method ="get">
     <label for="date">Select a date:</label>
     <input type="date" id ="date" name="date">
     <br><br><br><br>
@@ -54,7 +54,7 @@ if (isset($_GET['add'])){
         
         }
         else{
-            echo "no work";
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
 

@@ -73,7 +73,7 @@ include_once 'index.html';
                     if ($result->num_rows > 0) {
                         // Loop through the results and create an option for each ingredient
                         while($row = $result->fetch_assoc()) {
-                            echo "<option value="' . $row["ingName"] . '">" . $row["ingName"] . "</option>";
+                            echo '<option value="' . $row["ingName"] . '">' . $row["ingName"] . '</option>';
                         }
                     } else {
                         echo "<option value=''>No ingredients found</option>";
