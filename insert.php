@@ -20,6 +20,21 @@ else {
     "Error: " . $sql . "<br>" . $conn->error;
 }
 
+//pulling recipeid
+include 'connect.php';
+$sql0 ="SELECT MAX(recipeid) FROM recipes";
+$result0 = $conn->query($sql0);
+
+if ($result0){
+    $row = $result0->fetch_assoc();
+        $recipeid = $row['MAX(recipeid)'];
+    }
+
+else {
+    echo "Error: " . $sql0 . "<br>" . $conn->error;
+}
+
+
 
 //create link between ingredients and recipes
 foreach ($ingredients as $ingredient){
@@ -30,7 +45,7 @@ foreach ($ingredients as $ingredient){
     if ($result){
         $row = $result->fetch_assoc();
         foreach ($row as $ingid){
-            $sql5 = "";
+            $sql5 = "INSERT INTO ingredients_has_recipes (ingid, recipeid) VALUES ('$ingid','$recipeid')";
             $result1 = $conn->query($sql5);
             if ($result1){
                 echo "New record created successfully!<br>";
@@ -44,40 +59,8 @@ foreach ($ingredients as $ingredient){
         echo "Error: " . $sql4 . "<br>" . $conn->error;
     }
 
-    // echo $sql4;
-    // $result = $conn->query($sql4);
 
-    // if ($result->num_rows > 0) {
-    //     while ($row = $result->fetch_row()){
-    //         echo $row[0];
-    //     }
-    // }
-    // else {
-    //     echo "no work bitch";
-    // }
-
-
-
-
-
-   
-    
-    // if ($result1 === TRUE){
-    //     $row = $result1->fetch_assoc();
-    //     echo $row['ingid'];
-    // }
-    // else {
-    //     echo "no work";
-    // }
-    
-
-
-    // $sql2 = "INSERT INTO ingredients_has_recipes (insid, recipeid) VALUES ('$ingid','$recipeid');";
-    // $conn->query($sql3);"
-
-
-
-}
+ }
 //insert statement for ingredients and instructions
 
 foreach ($instructions as $instruction) {
