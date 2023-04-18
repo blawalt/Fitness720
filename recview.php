@@ -46,8 +46,6 @@ if ($result->num_rows > 0) {
             }
         }
         echo "</ul>";
-
-        
         echo "<p>Instructions:</p>";
 
         //Display Instructions

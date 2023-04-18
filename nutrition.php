@@ -1,3 +1,7 @@
+<?php
+include_once 'index.html'
+?>
+
 <html>
 
 <form method ="get" >
@@ -26,7 +30,7 @@
         }
         ?>
     </select>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Add">
 </form>
 
 
