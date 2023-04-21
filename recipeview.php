@@ -1,10 +1,12 @@
+<?php
+include 'index.html';
+?>
 <html>
 <form id="recipe-form" method="get" action="recview.php">
 <label for="recipe">Choose a recipe:</label>
 <select name="recipe" id="recipe">
 <?php
 include_once 'connect.php';
-include_once 'index.html';
 
 $sql = "SELECT * FROM recipes";
 $result = $conn->query($sql);
