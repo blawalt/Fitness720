@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
         echo "<p>Ingredients:</p><ul>";
 
         //Display Ingredients
-
+        
         
         $sql1 = "SELECT * FROM ingredients, ingredients_has_recipes WHERE ingredients_has_recipes.recipeid = '$recipeid' AND ingredients_has_recipes.ingid = ingredients.ingid ";
         $result1 = $conn->query($sql1);
