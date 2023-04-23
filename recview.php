@@ -4,7 +4,7 @@ include_once 'index.html';
 
 
 $recipeid = $_GET['recipe'];
-
+echo $recipeid;
 //Display Recipe Name, Category, and Difficulty
 $sql = "SELECT * FROM recipes WHERE recipeid = $recipeid";
 
