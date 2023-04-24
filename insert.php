@@ -42,12 +42,14 @@ else {
 //create link between ingredients and recipes
 foreach ($ingredients as $ingredient){
     include 'connect.php';
+    //I bet if i did DISTINCT, it would actually print correct. food for thought
     $sql4 = "SELECT ingid FROM ingredients WHERE ingName = '$ingredient'";
     
     $result = $conn->query($sql4);
     if ($result){
         $row = $result->fetch_assoc();
         foreach ($row as $ingid){
+            echo $ingid;
             $sql5 = "INSERT INTO ingredients_has_recipes (ingid, recipeid) VALUES ('$ingid','$recipeid')";
             $result1 = $conn->query($sql5);
             if ($result1){
