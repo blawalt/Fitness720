@@ -37,7 +37,7 @@ else {
     echo "Error: " . $sql0 . "<br>" . $conn->error;
 }
 
-
+echo $recipeid;
 
 //create link between ingredients and recipes
 foreach ($ingredients as $ingredient){
